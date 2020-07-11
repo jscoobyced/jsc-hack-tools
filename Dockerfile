@@ -25,9 +25,6 @@ RUN apt-get install -y libwww-perl libcrypt-ssleay-perl \
     zlib1g-dev yasm pkg-config libgmp-dev libpcap-dev libbz2-dev
 RUN update-alternatives --install /usr/bin/python python /usr/bin/python3 1
 
-#RUN mkdir /usr/share/wordlist
-#COPY wordlist /usr/share/wordlist/
-
 # Install hacking tools
 RUN apt-get install -y hydra-gtk nmap aircrack-ng
 
@@ -45,6 +42,9 @@ RUN echo "alias john='/usr/local/src/john/run/john'" >> /root/.bashrc
 
 RUN cd /usr/local/src/ && git clone https://github.com/sullo/nikto nikto
 RUN echo "alias nikto='/usr/local/src/nikto/program/nikto.pl'" >> /root/.bashrc
+
+RUN mkdir /usr/share/wordlist
+COPY wordlist /usr/share/wordlist/
 
 # Cleanup
 RUN rm -Rf /var/cache/apt/
