@@ -4,6 +4,8 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 LABEL maintainer="JscDroidDev"
 
+ENV TZ Asia/Bangkok
+
 # Upgrade environment
 RUN apt-get update \
     && apt-get install apt-utils locales wget -y \
@@ -22,7 +24,8 @@ RUN sed -i 's/\# alias ll/alias ll/g' ~/.bashrc
 # Install basic tools
 RUN apt-get install -y libwww-perl libcrypt-ssleay-perl \
     vim curl git python3 build-essential libssl-dev \
-    zlib1g-dev yasm pkg-config libgmp-dev libpcap-dev libbz2-dev
+    zlib1g-dev yasm pkg-config libgmp-dev libpcap-dev libbz2-dev \
+    ruby ruby-dev
 RUN update-alternatives --install /usr/bin/python python /usr/bin/python3 1
 
 # Install hacking tools
@@ -42,6 +45,8 @@ RUN echo "alias john='/usr/local/src/john/run/john'" >> /root/.bashrc
 
 RUN cd /usr/local/src/ && git clone https://github.com/sullo/nikto nikto
 RUN echo "alias nikto='/usr/local/src/nikto/program/nikto.pl'" >> /root/.bashrc
+
+RUN gem install wpscan
 
 RUN mkdir /usr/share/wordlist
 COPY wordlist /usr/share/wordlist/
