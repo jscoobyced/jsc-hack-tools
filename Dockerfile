@@ -50,6 +50,8 @@ RUN gem install wpscan
 
 RUN mkdir /usr/share/wordlist
 COPY wordlist /usr/share/wordlist/
+COPY versions.sh /usr/local/bin
+RUN chmod 755 /usr/local/bin/versions.sh
 
 # Cleanup
 RUN rm -Rf /var/cache/apt/
