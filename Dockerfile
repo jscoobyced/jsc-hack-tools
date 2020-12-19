@@ -25,7 +25,7 @@ RUN sed -i 's/\# alias ll/alias ll/g' ~/.bashrc
 RUN apt-get install -y libwww-perl libcrypt-ssleay-perl \
     vim curl git python3 build-essential libssl-dev \
     zlib1g-dev yasm pkg-config libgmp-dev libpcap-dev libbz2-dev \
-    ruby ruby-dev nc
+    ruby ruby-dev netcat
 RUN update-alternatives --install /usr/bin/python python /usr/bin/python3 1
 
 # Install hacking tools
