@@ -1,5 +1,5 @@
 #!/bin/bash
 
-#docker build -t jscdroiddev/jsc-hack-tools:latest .
+docker login
 
-docker push jscdroiddev/jsc-hack-tools:latest
+docker build -t jscdroiddev/jsc-hack-tools:latest . && docker push jscdroiddev/jsc-hack-tools:latest
