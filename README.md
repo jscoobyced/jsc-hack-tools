@@ -5,7 +5,7 @@ Since there is no UI, only command line tools are added.
 
 To run:
 ```
-docker run -it --name jsc-hack-toole jscdroiddev/jsc-hack-tools:latest bash
+docker run -it --name jsc-hack-tools jscdroiddev/jsc-hack-tools:latest bash
 ```
 You can add `--rm` for a single use and delete the container on exit.
 
@@ -24,3 +24,4 @@ Current tools are:
 | Pad Buster       | Tool to automate padding oracle attack     | 0.3.3         |
 | AirCrack-NG      | Assess and crack wifi                      | 1.5.2         |
 | wpscan           | Scan and brute force WordPress             | 3.8.19        |
+| smuggler         | Scan for HTTP Request smuggling            | 1.1           |

@@ -69,6 +69,9 @@ RUN mkdir /opt/nc
 COPY --from=build-env /opt/nc /opt/nc/
 RUN update-alternatives --install /usr/bin/nc nc /opt/nc/bin/nc 1
 
+RUN cd /usr/local/src/ && git clone https://github.com/defparam/smuggler.git smuggler
+RUN update-alternatives --install /usr/bin/smuggler smuggler /usr/local/src/smuggler/smuggler.py 1
+
 RUN mkdir /usr/share/wordlist
 COPY wordlist /usr/share/wordlist/
 COPY versions.sh /usr/local/bin
